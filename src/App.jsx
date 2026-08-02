@@ -6,7 +6,7 @@ import usersFromServer from './api/users.json';
 
 import { PostList } from './components/PostList';
 
-export const post = postsFromServer.map(info => {
+export const posts = postsFromServer.map(info => {
   const users = usersFromServer.find(user => user.id === info.userId);
   const postComments = commentsFromServer.filter(
     comment => comment.postId === info.id,
@@ -22,6 +22,6 @@ export const post = postsFromServer.map(info => {
 export const App = () => (
   <section className="App">
     <h1 className="App__title">Static list of posts</h1>
-    <PostList posts={post} />
+    <PostList posts={posts} />
   </section>
 );
